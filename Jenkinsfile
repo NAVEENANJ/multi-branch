@@ -21,7 +21,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh 'docker build -t gowryee/multi:v1 .'
+                    sh 'docker build -t naveenanj/multi:v1 .'
                     sh 'docker images'
                 }
             }
@@ -30,8 +30,8 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
-                        sh "docker login -u gowryee -p ${dockerPassword}"
-                        sh 'docker push comdevops/multi:v1'
+                        sh "docker login -u naveenanj -p ${dockerPassword}"
+                        sh 'docker push naveenanj/multi:v1'
                     }
                 }
             }
